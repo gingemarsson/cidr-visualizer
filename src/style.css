@@ -27,11 +27,16 @@ html {
   textarea {
     box-sizing: border-box;
     width: 1025px;
-    height: 15em;
+    height: 15.5em;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1em;
     background: transparent;
     color: #eee;
+    overflow: hidden;
+  }
+
+  textarea:hover {
+    overflow-y: scroll;
   }
 
   #visualizer {
@@ -57,4 +62,34 @@ html {
     height: 100%;
     background: #eee;
     transition: width 0.5s, opacity 1s;
+  }
+
+  .input {
+    position: relative;
+  }
+
+  #start-button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-family: inherit;
+    padding: 0.5em 1em;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #eee;
+    z-index: 10;
+  }
+
+  #start-button:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  #start-button:disabled {
+    opacity: 0.3;
+  }
+
+  #start-button:disabled:hover {
+    background: none;
+    cursor: wait;
   }

@@ -19,22 +19,21 @@ const z = new ZCurve(2, 20);
 
 class InputHandler {
     constructor() {
-        let inputElement = document.getElementById("cidr") as HTMLTextAreaElement;
-        inputElement.addEventListener('blur', InputHandler.doWork)
-        InputHandler.showResult(inputElement);
+        let inputElement = document.getElementById("start-button") as HTMLTextAreaElement;
+        inputElement.addEventListener('click', InputHandler.doWork)
+        InputHandler.showResult();
     }
 
-    static doWork(event: Event) {
-        const target = event.target as HTMLElement;
-        if (target.id != 'cidr' || ProgressTracker.isDrawing) {
+    static doWork() {
+        if (ProgressTracker.isDrawing) {
             return;
         }
 
-        InputHandler.showResult(target);
+        InputHandler.showResult();
     }
 
-    private static showResult(target: HTMLElement) {
-        const cidrRanges = ((target as HTMLTextAreaElement).value as any)
+    private static showResult() {
+        const cidrRanges = ((document.getElementById("cidr") as HTMLTextAreaElement).value as any)
             .replaceAll(',', '\n')
             .split('\n')
             .filter((l: any) => !!l)
@@ -115,6 +114,7 @@ class ProgressTracker {
     total: bigint;
     startTime: number | null;
     progressBarElement: HTMLDivElement | null = null;
+    startButtonElement: HTMLButtonElement | null = null;
 
     static isDrawing: boolean = false;
 
@@ -124,6 +124,7 @@ class ProgressTracker {
         this.startTime = null;
 
         this.progressBarElement = document.getElementById("progress-bar") as HTMLDivElement;
+        this.startButtonElement = document.getElementById("start-button") as HTMLButtonElement;
     }
 
     public start() {
@@ -133,6 +134,9 @@ class ProgressTracker {
         if (this.progressBarElement) {
             this.progressBarElement.style.opacity = '1';
             this.progressBarElement.style.width = '0';
+        }
+        if (this.startButtonElement) {
+            this.startButtonElement.disabled = true;
         }
     }
 
@@ -165,6 +169,10 @@ class ProgressTracker {
 
                 progressBarElement.style.opacity = '0';
                 setTimeout(() => progressBarElement.style.width = '0', 1000);
+            }
+
+            if (this.startButtonElement) {
+                this.startButtonElement.disabled = false;
             }
         }
     }
