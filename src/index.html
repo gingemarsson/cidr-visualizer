@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css" />
+    <title>CIDR visualizer</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>CIDR visualizer</h1>
+        <div id="progress">
+            <div id="progress-bar"></div>
+        </div>
+        <div class="input">
+            <textarea placeholder="0.0.0.0/0" id="cidr" size="17" autofocus="autofocus"></textarea>
+        </div>
+        <canvas id="visualizer" class="visualizer" width="1024" height="1024"></canvas>
+    </div>
+    <script src="./index.ts"></script>
+</body>
+
+</html>

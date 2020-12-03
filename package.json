@@ -1,0 +1,17 @@
+{
+    "files": [
+        "src/"
+    ],
+    "scripts": {
+        "start": "parcel serve src/index.html",
+        "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url ."
+    },
+    "devDependencies": {
+        "cross-env": "^5.2.0",
+        "parcel-bundler": "^1.9.7",
+        "typescript": "^3.2"
+    },
+    "dependencies": {
+        "@thi.ng/morton": "^2.0.27"
+    }
+}

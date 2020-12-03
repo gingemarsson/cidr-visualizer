@@ -1,0 +1,60 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: monospace;
+    background-color: rgb(11, 80, 121);
+    background-image: linear-gradient(rgb(20, 56, 92) 0%, rgb(1, 57, 95) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+  }
+
+  h1, h2 {
+    font-size: 3.5em;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    width: 1025px;
+    height: 15em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1em;
+    background: transparent;
+    color: #eee;
+  }
+
+  #visualizer {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 1em;
+  }
+
+  #container {
+    width: 1024px;
+    margin: 10rem auto;
+  }
+
+  #progress {
+    box-sizing: border-box;
+    width: 1025px;
+    height: 1px;
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  #progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #eee;
+    transition: width 0.5s, opacity 1s;
+  }
